@@ -1,0 +1,31 @@
+{
+  "name": "vitalreader",
+  "version": "1.0.0",
+  "description": "reads vitals for person",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chotung/vitalReader.git"
+  },
+  "keywords": [
+    "vitals"
+  ],
+  "author": "Charlie Tung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chotung/vitalReader/issues"
+  },
+  "homepage": "https://github.com/chotung/vitalReader#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
