@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src"
+    "start": "npm run seed && node src/index.js",
+    "seed": "node ./seeder/seed.js",
+    "dev": "npm run seed && nodemon src"
   },
   "repository": {
     "type": "git",
@@ -22,8 +24,11 @@
   "homepage": "https://github.com/chotung/vitalReader#readme",
   "dependencies": {
     "axios": "^0.20.0",
+    "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.3"
+    "mongoose": "^5.10.3",
+    "mongoose-seed": "^0.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
