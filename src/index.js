@@ -22,6 +22,9 @@ app.use(express.urlencoded({extended:true}))
 
 app.use("/api", require("./routes/user.js"))
 
+app.get("/", (req, res) => {
+    res.send("Welcome to Vital Reader API")   
+})
 
 
 
