@@ -7,8 +7,8 @@ router.get("/user", async (req, res) => {
     const allUsers = await User.find({})
     res.json(allUsers)
 })
-// POST DATA FROM FRONTEND TO BACK
-router.post("/user/vitals", async (req, res) => {
+// UPDATES DATA FROM FRONTEND TO BACK
+router.put("/user/vitals", async (req, res) => {
     // console.log(req.body);
     const {temp, systolic, dystolic, sp02, pulseRate } = req.body.vitals
     const { _id } = req.body
