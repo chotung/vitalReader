@@ -17,11 +17,15 @@ db.once("open", () => {
     console.log("We're connected!");
 })
 
-app.get("*", (req, res) => {
-    res.send("hello world")
-})
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 app.use("/api", require("./routes/user.js"))
+
+
+
+
+
 app.listen(port, () => {
     console.log(`Server is listening at http://localhost:${port}`)
 })

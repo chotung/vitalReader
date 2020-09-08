@@ -1,16 +1,28 @@
 const express = require("express")
 const router = express.Router()
-// const User = require("../model/User")
+const User = require("../models/User")
 
 // GET DATA FOR FRONTEND
 router.get("/user", async (req, res) => {
-    res.send("send user data to front")
+    const allUsers = await User.find({})
+    res.json(allUsers)
 })
 // POST DATA FROM FRONTEND TO BACK
 router.post("/user/vitals", async (req, res) => {
-    // const {temp, bloodPressure, oximeter} = req.body.vitals
-    // 
-    res.send("hey you updated your vitals")
+    // console.log(req.body);
+    const {temp, systolic, dystolic, sp02, pulseRate } = req.body.vitals
+    const { _id } = req.body
+    const filter = { _id }
+    const update = { 
+        temp,
+        systolic,
+        dystolic,
+        sp02,
+        pulseRate
+    }
+    const user = await User.findOneAndUpdate(filter, update)
+    const updated = await User.findOne(filter)
+    res.json(updated)
 })
 
 module.exports = router
