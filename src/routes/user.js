@@ -9,7 +9,6 @@ router.get("/user", async (req, res) => {
 })
 // UPDATES DATA FROM FRONTEND TO BACK
 router.put("/user/vitals", async (req, res) => {
-    // console.log(req.body);
     const {temp, systolic, dystolic, sp02, pulseRate } = req.body.vitals
     const { _id } = req.body
     const filter = { _id }
@@ -20,9 +19,13 @@ router.put("/user/vitals", async (req, res) => {
         sp02,
         pulseRate
     }
-    const user = await User.findOneAndUpdate(filter, update)
-    const updated = await User.findOne(filter)
-    res.json(updated)
+    try {
+        const user = await User.findOneAndUpdate(filter, update);
+        res.send("updated");
+
+    } catch (error) {
+        res.status(404).error(error)
+    }
 })
 
 module.exports = router
