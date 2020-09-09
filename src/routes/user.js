@@ -9,7 +9,7 @@ router.get("/user", async (req, res) => {
 })
 // UPDATES DATA FROM FRONTEND TO BACK
 router.put("/user/vitals", async (req, res) => {
-    const {temp, systolic, dystolic, sp02, pulseRate } = req.body.vitals
+    const {temp, systolic, dystolic, sp02, pulseRate } = req.body
     const { _id } = req.body
     const filter = { _id }
     const update = { 
